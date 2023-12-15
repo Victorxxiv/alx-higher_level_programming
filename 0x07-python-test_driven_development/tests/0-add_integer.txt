@@ -1,0 +1,37 @@
+# Run test cases for add_integer function
+
+>>> from add _integer import add_integer
+
+# Test Case 1: Adding two integers
+>>> add_integer(1, 2)
+3
+
+# Test Case 2: Adding positive and ngeative integers
+>>> add_integer(100, -2)
+98
+
+# Test Case 3: Adding one integer (using default value for b)
+>>> add_integer(2)
+100
+
+# Test Case 4: Adding float and negative integer
+>>> add_integer(100.3, -2)
+98
+
+# Test Case 5: Trying to add an integer and a string ( Expecting TypeError)
+>>> add_integer(4, "School")
+Traceback (most recent call last):
+     File "0-add_integer.py", line ..., in <module>
+         print(add_integer(4, "School"))
+     File "0-add_integer.py", line ..., in add_integer
+        raise TypeError("b must be an integer")
+TypeError: b must be an integer
+
+# Test Case 6: Trying to add None (Expecting TypeError)
+>>> add_integer(None)
+Traceback (most recent call last):
+     File "0-add_integer.py", line ..., in <module>
+         print(add_integer(None))
+     File "0-add_integer.py", line ..., in add_integer
+         raise TypeError("a must be an integer")
+TypeError: a msut be an integer
