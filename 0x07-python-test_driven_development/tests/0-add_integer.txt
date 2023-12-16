@@ -1,37 +1,69 @@
 # Run test cases for add_integer function
 
->>> from '0-add _integer' import add_integer
+>>> add_integer = __import__('0-add_integer').add_integer
 
-# Test Case 1: Adding two integers
->>> add_integer(1, 2)
-3
+# Test Case 1: Adding zero values
+>>> add_integer(0, 0)
+0
 
-# Test Case 2: Adding positive and ngeative integers
->>> add_integer(100, -2)
-98
+# Test Case 2: Adding a positive integer and zero
+>>> add_integer(15, 0)
+15
 
-# Test Case 3: Adding one integer (using default value for b)
+# Test Case 3: Adding zero and a positive integer
+>>> add_integer(0, 15)
+15
+
+# Test Case 4: Adding a negative integer and zero
+>>> add_integer(-2, 2)
+0
+
+# Test Case 5: Adding zero and a negative integer
+>>> add_integer(2, -2)
+0
+
+# Test Case 6: Using default value for b
 >>> add_integer(2)
 100
 
-# Test Case 4: Adding float and negative integer
->>> add_integer(100.3, -2)
-98
-
-# Test Case 5: Trying to add an integer and a string ( Expecting TypeError)
->>> add_integer(4, "School")
+# Test Case 7: Missing one argument (Expecting TypeError)
+>>> add_integer()
 Traceback (most recent call last):
-     File "0-add_integer.py", line ..., in <module>
-         print(add_integer(4, "School"))
-     File "0-add_integer.py", line ..., in add_integer
-        raise TypeError("b must be an integer")
+    ...
+TypeError: add_integer() missing 1 required positional argument: 'a'
+
+# Test Case 8: Missing both arguments (Expecting TypeError)
+>>> add_integer('a', 'b')
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+# Test Case 9: Trying to add a string and an integer (Expecting TypeError)
+>>> add_integer('a', 42)
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+# Test Case 10: Trying to add a string (Expecting TypeError)
+>>> add_integer('a')
+Traceback (most recent call last):
+    ...
+TypeError: a must be an integer
+
+# Test Case 11: Trying to add an integer and a string (Expecting TypeError)
+>>> add_integer(42, 'b')
+Traceback (most recent call last):
+    ...
 TypeError: b must be an integer
 
-# Test Case 6: Trying to add None (Expecting TypeError)
->>> add_integer(None)
+# Test Case 12: Float overflow (Expecting OverflowError)
+>>> add_integer(float('inf'), 0)
 Traceback (most recent call last):
-     File "0-add_integer.py", line ..., in <module>
-         print(add_integer(None))
-     File "0-add_integer.py", line ..., in add_integer
-         raise TypeError("a must be an integer")
-TypeError: a msut be an integer
+    ...
+OverflowError: cannot convert float infinity to integer
+
+# Test Case 13: Adding zero and NaN (Expecting ValueError)
+>>> add_integer(0, float('nan'))
+Traceback (most recent call last):
+    ...
+ValueError: cannot convert float NaN to integer
